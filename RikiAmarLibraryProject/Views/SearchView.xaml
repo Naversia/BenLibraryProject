@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="BenEliLibraryProject.Views.SearchView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BenEliLibraryProject.Views"
+             mc:Ignorable="d" 
+             DataContext="{Binding Source={StaticResource Locator}, Path=Search}"  Visibility="{Binding UcVisibility}">
+    <StackPanel Background="Beige">
+        <TextBlock Text="Search Item" FontWeight="Bold" FontSize="40" Margin="20" HorizontalAlignment="Center" Foreground="Black" />
+        <Grid Margin="20" Height="133">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Search for the Title of a book that contains the Letter:" Name="btnTitleSearch" Padding="10" Margin="10" Command="{Binding SearchTitleCommand}" />
+            <Button Content="Search for the Author Name of a book that contains the Letter " Name="btnSearchAuthor" Grid.Column="1" Padding="10" Margin="10" Command="{Binding SearchAuthorCommand}" />
+            <Button Content="Search Price" Name="btnSearchPrice" Grid.Column="2" Padding="10" Margin="10" Command="{Binding SearchPriceCommand}" />
+            <TextBox x:Name="textBoxTitle" Text="{Binding Title}" TextAlignment="Center" Grid.Row="1" Grid.Column="0" Margin="10" Padding="10"/>
+            <TextBox x:Name="textBoxAuthor" Text="{Binding Author}" TextAlignment="Center" Grid.Row="1" Grid.Column="1" Margin="10" Padding="10"/>
+            <TextBox x:Name="textBoxPrice" Text="{Binding Price}" TextAlignment="Center" Grid.Row="1" Grid.Column="2" Margin="10" Padding="10"/>
+        </Grid>
+
+        <Grid >            <StackPanel>                <ListView x:Name="DataListOfLibery" SelectedItem="{Binding SelectedItem}" SelectionMode="Single" ItemsSource="{Binding Path=Itemlist}"  FontSize="18" Width="980" Height="400">                    <ListView.View>                        <GridView x:Name="grdTest" >                            <GridViewColumn Header="ISBN" Width="380"  DisplayMemberBinding="{Binding ISBN}"/>                            <GridViewColumn Header="Title" Width="150" DisplayMemberBinding="{Binding Title}"/>                            <GridViewColumn Header="Author" Width="150" DisplayMemberBinding="{Binding AuthorName}"/>                            <GridViewColumn Header="Price" Width="75" DisplayMemberBinding="{Binding Price}"/>                            <GridViewColumn Header="Stock" Width="75" DisplayMemberBinding="{Binding Stock}"/>                            <GridViewColumn Header="Genre" Width="150" DisplayMemberBinding="{Binding Genre}"/>                        </GridView>                    </ListView.View>                </ListView>            </StackPanel>        </Grid>
+    </StackPanel>
+   </UserControl>

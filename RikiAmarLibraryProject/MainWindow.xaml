@@ -1,0 +1,26 @@
+﻿<Window x:Class="BenEliLibraryProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BenEliLibraryProject"
+        xmlns:view="clr-namespace:BenEliLibraryProject.Views"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="1200"
+         DataContext="{Binding Source={StaticResource Locator}, Path=Main}">
+    <Grid>
+        <Grid.RowDefinitions>            <RowDefinition Height="50"/>            <RowDefinition/>        </Grid.RowDefinitions>
+        <StackPanel>
+            <Menu>
+                <Button Content="Add Book " Command="{Binding ManageUcVisibilitiesCommand}" CommandParameter="AddBookView" FontSize="25"  />
+                <Button Content="Add Journal " Command="{Binding ManageUcVisibilitiesCommand}" CommandParameter="AddJournalView" FontSize="25"/>
+                <Button Content="Search " Command="{Binding ManageUcVisibilitiesCommand}" CommandParameter="SearchView" FontSize="25"/>
+                <Button Content="Edit Item " Command="{Binding ManageUcVisibilitiesCommand}" CommandParameter="EditView" FontSize="25"/>
+            </Menu>
+          
+        </StackPanel>
+        
+        <view:AddJournalView Grid.Row="1"/>
+        <view:AddBookView Grid.Row="1"/>        <view:SearchView Grid.Row="1"/>        <view:EditItemView Grid.Row="1"/>
+    </Grid>
+</Window>

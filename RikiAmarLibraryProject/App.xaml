@@ -1,0 +1,40 @@
+<Application x:Class="BenEliLibraryProject.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:BenEliLibraryProject" StartupUri="MainWindow.xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" d1p1:Ignorable="d" xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006">
+  <Application.Resources>
+    <ResourceDictionary>
+      <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:BenEliLibraryProject.ViewModel" />
+            <Style x:Key="def" TargetType="FrameworkElement">
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="TextBlock.FontSize" Value="20"/>
+                <Setter Property="TextBlock.Foreground" Value="SaddleBrown"/>
+            </Style>
+
+            <Style TargetType="TextBox" BasedOn="{StaticResource def}"/>
+            <Style TargetType="TextBlock"  BasedOn="{StaticResource def}"/>
+
+            <Style x:Key="tbHeader" TargetType="TextBlock" BasedOn="{StaticResource def}">
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="FontSize" Value="18"/>
+            </Style>
+
+            <Style x:Key="tbMenuHeader" TargetType="TextBlock" BasedOn="{StaticResource def}">
+                <Setter Property="FontSize" Value="30"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="Background" Value="Azure"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+            </Style>
+
+            <Style x:Key="tbTitle" TargetType="TextBlock" BasedOn="{StaticResource def}">
+                <Setter Property="Foreground" Value="Brown"/>
+            </Style>
+
+            <Style TargetType="Button">
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Foreground" Value="Bisque"/>
+                        <Setter Property="FontWeight" Value="Medium"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+  </Application.Resources>
+</Application>
